@@ -44,7 +44,7 @@ export default function LoginPage() {
       <div className="absolute inset-y-0 left-[-12rem] w-72 rotate-12 bg-gold/15 blur-3xl" />
       <div className="absolute bottom-[-8rem] right-[-8rem] h-80 w-80 rounded-full bg-crimson/8 blur-3xl" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-10 px-4 py-12 lg:flex-row lg:items-center lg:gap-16">
+      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-8 px-4 py-10 sm:py-12 lg:flex-row lg:items-center lg:gap-16">
         <section className="max-w-xl space-y-6">
           <div className="inline-flex items-center gap-3 rounded-full border border-gold/30 bg-white/70 px-4 py-2 text-sm text-gold shadow-sm">
             <ShieldCheck className="h-4 w-4" />
@@ -53,8 +53,8 @@ export default function LoginPage() {
 
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <Heart className="h-9 w-9 text-gold" />
-              <h1 className="font-serif text-4xl text-gold sm:text-5xl">
+              <Heart className="h-8 w-8 shrink-0 text-gold sm:h-9 sm:w-9" />
+              <h1 className="font-serif text-3xl text-gold sm:text-5xl">
                 Enter The Covenant
               </h1>
             </div>
@@ -67,12 +67,12 @@ export default function LoginPage() {
 
         </section>
 
-        <section className="w-full max-w-md rounded-[2rem] border border-gold/25 bg-white/82 p-8 shadow-[0_20px_60px_rgba(146,122,69,0.12)] backdrop-blur-xl">
-          <div className="mb-8 space-y-2">
+        <section className="w-full max-w-md rounded-[1.75rem] border border-gold/25 bg-white/82 p-5 shadow-[0_20px_60px_rgba(146,122,69,0.12)] backdrop-blur-xl sm:rounded-[2rem] sm:p-8">
+          <div className="mb-6 space-y-2 sm:mb-8">
             <p className="text-sm uppercase tracking-[0.25em] text-gold-muted">
               Login
             </p>
-            <h2 className="font-serif text-3xl text-stone-950">Sacred access only</h2>
+            <h2 className="font-serif text-2xl text-stone-950 sm:text-3xl">Sacred access only</h2>
             <p className="text-sm leading-6 text-muted-foreground">
               Sign in with your email and password to continue into your covenant.
             </p>

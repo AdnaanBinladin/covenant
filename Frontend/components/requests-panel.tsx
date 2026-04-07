@@ -31,22 +31,22 @@ function RequestCard({
   destructiveSecondary?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-gold/20 bg-white/80 p-5 shadow-sm">
-      <div className="flex items-start justify-between gap-4">
+    <div className="rounded-2xl border border-gold/20 bg-white/80 p-4 shadow-sm sm:p-5">
+      <div className="flex items-start justify-between gap-3 sm:gap-4">
         <div className="space-y-2">
           <p className="text-xs uppercase tracking-[0.2em] text-gold-muted">{subtitle}</p>
-          <h3 className="font-serif text-xl text-stone-950">{title}</h3>
+          <h3 className="font-serif text-lg text-stone-950 sm:text-xl">{title}</h3>
           <p className="text-sm text-stone-600">{body}</p>
         </div>
         <Clock3 className="mt-1 h-5 w-5 text-gold" />
       </div>
       {(primaryActionLabel && onPrimaryAction) || (secondaryActionLabel && onSecondaryAction) ? (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 grid grid-cols-1 gap-2 sm:flex sm:flex-wrap">
           {primaryActionLabel && onPrimaryAction && (
             <Button
               onClick={onPrimaryAction}
               disabled={primaryDisabled}
-              className="bg-gold text-background hover:bg-gold/90"
+              className="w-full bg-gold text-background hover:bg-gold/90 sm:w-auto"
             >
               <Check className="mr-2 h-4 w-4" />
               {primaryActionLabel}
@@ -59,8 +59,8 @@ function RequestCard({
               variant={destructiveSecondary ? 'outline' : 'ghost'}
               className={
                 destructiveSecondary
-                  ? 'border-crimson/40 text-crimson hover:bg-crimson/10 hover:text-crimson'
-                  : 'text-stone-600 hover:text-stone-950'
+                  ? 'w-full border-crimson/40 text-crimson hover:bg-crimson/10 hover:text-crimson sm:w-auto'
+                  : 'w-full text-stone-600 hover:text-stone-950 sm:w-auto'
               }
             >
               <X className="mr-2 h-4 w-4" />
@@ -182,12 +182,12 @@ export function RequestsPanel() {
                   <Trash2 className="mt-1 h-5 w-5 text-crimson" />
                 </div>
                 <div className="mt-4">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap">
                     <Button
                       onClick={() => handleApproveDeletion(rule)}
                       disabled={userAlreadyApproved}
                       variant="outline"
-                      className="border-crimson/40 text-crimson hover:bg-crimson/10 hover:text-crimson"
+                      className="w-full border-crimson/40 text-crimson hover:bg-crimson/10 hover:text-crimson sm:w-auto"
                     >
                       <Check className="mr-2 h-4 w-4" />
                       {userAlreadyApproved ? 'Awaiting Another User' : 'Approve Deletion'}
@@ -195,7 +195,7 @@ export function RequestsPanel() {
                     <Button
                       onClick={() => handleCancelDeletion(rule)}
                       variant="ghost"
-                      className="text-stone-600 hover:text-stone-950"
+                      className="w-full text-stone-600 hover:text-stone-950 sm:w-auto"
                     >
                       <X className="mr-2 h-4 w-4" />
                       Cancel Request

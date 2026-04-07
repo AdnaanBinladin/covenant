@@ -30,6 +30,13 @@ export interface Violation {
   createdAt: Date;
 }
 
+export interface ViolationJudgment {
+  decision: 'violation' | 'no_violation' | 'unclear';
+  summary: string;
+  reasoning: string;
+  confidence: 'high' | 'medium' | 'low';
+}
+
 export interface Stats {
   totalRules: number;
   totalViolations: number;

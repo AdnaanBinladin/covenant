@@ -1,4 +1,4 @@
-import { Violation, Partner } from './types';
+import { Violation, Partner, ViolationJudgment } from './types';
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:4000';
@@ -61,6 +61,27 @@ export async function createViolation(
 
   const payload = await parseJson<{ violation: ViolationPayload }>(response);
   return toViolation(payload.violation);
+}
+
+export async function judgeViolation(
+  token: string,
+  payload: {
+    ruleId: string;
+    accusedName: string;
+    happened: string;
+  }
+) {
+  const response = await fetch(`${API_BASE_URL}/api/violations/judge`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const result = await parseJson<{ judgment: ViolationJudgment }>(response);
+  return result.judgment;
 }
 
 export async function forgiveViolationRequest(token: string, violationId: string) {

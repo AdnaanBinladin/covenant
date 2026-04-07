@@ -37,6 +37,7 @@ from routes.violations import (
     handle_forgive_violation,
     handle_list_violations,
 )
+from routes.judge import handle_judge_violation
 from routes.stats import handle_stats
 
 
@@ -138,6 +139,10 @@ class AuthHandler(BaseHTTPRequestHandler):
 
         if self.path == "/api/violations":
             handle_create_violation(self)
+            return
+
+        if self.path == "/api/violations/judge":
+            handle_judge_violation(self)
             return
 
         if self.path.startswith("/api/violations/") and self.path.endswith("/forgive"):

@@ -37,7 +37,7 @@ export function ViolationHistory() {
         A record of transgressions and forgiveness.
       </p>
 
-      <div className="relative space-y-4 pl-6">
+      <div className="relative space-y-4 pl-4 sm:pl-6">
         {/* Timeline line */}
         <div className="absolute bottom-0 left-2 top-0 w-px bg-gold/30" />
 
@@ -49,7 +49,7 @@ export function ViolationHistory() {
             <div
               key={violation.id}
               className={cn(
-                'animate-fade-in relative rounded-lg border p-4 transition-all',
+                'animate-fade-in relative rounded-lg border p-4 transition-all sm:p-4',
                 'bg-card/50 backdrop-blur-sm',
                 violation.forgiven
                   ? 'border-gold/30'
@@ -60,7 +60,7 @@ export function ViolationHistory() {
               {/* Timeline dot */}
               <div
                 className={cn(
-                  'absolute -left-6 top-4 flex h-4 w-4 items-center justify-center rounded-full',
+                  'absolute -left-4 top-4 flex h-4 w-4 items-center justify-center rounded-full sm:-left-6',
                   violation.forgiven
                     ? 'bg-gold'
                     : 'bg-crimson'
@@ -73,10 +73,10 @@ export function ViolationHistory() {
                 )}
               </div>
 
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex-1">
                   {/* Header */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <div
                       className={cn(
                         'flex h-6 w-6 items-center justify-center rounded-full',
@@ -91,7 +91,7 @@ export function ViolationHistory() {
                       {PARTNER_DETAILS[violation.brokenBy].name}
                     </span>
                     <span className="text-xs text-muted-foreground">broke</span>
-                    <span className="font-serif text-gold">
+                    <span className="font-serif text-sm text-gold sm:text-base">
                       {ROMAN_NUMERALS[rule.number - 1]}. {rule.title}
                     </span>
                   </div>
@@ -129,7 +129,7 @@ export function ViolationHistory() {
                     size="sm"
                     variant="ghost"
                     onClick={() => token && forgiveViolation(token, violation.id)}
-                    className="text-gold hover:bg-gold/10 hover:text-gold"
+                    className="self-start text-gold hover:bg-gold/10 hover:text-gold"
                   >
                     <Heart className="mr-1 h-4 w-4" />
                     Forgive

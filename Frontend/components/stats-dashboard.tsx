@@ -62,7 +62,7 @@ export function StatsDashboard() {
           <div
             key={card.label}
             className={cn(
-              'group relative overflow-hidden rounded-lg border p-6 transition-all',
+              'group relative overflow-hidden rounded-lg border p-5 transition-all sm:p-6',
               'bg-card/50 backdrop-blur-sm',
               card.color === 'gold'
                 ? 'border-gold/30 hover:border-gold/60'
@@ -86,7 +86,7 @@ export function StatsDashboard() {
             <p className="text-sm text-muted-foreground">{card.label}</p>
             <p
               className={cn(
-                'mt-1 font-serif text-3xl font-bold',
+                'mt-1 font-serif text-2xl font-bold sm:text-3xl',
                 card.color === 'gold' ? 'text-gold' : 'text-crimson'
               )}
             >
@@ -97,8 +97,8 @@ export function StatsDashboard() {
       </div>
 
       {/* Partner comparison */}
-      <div className="rounded-lg border border-gold/30 bg-card/50 p-6 backdrop-blur-sm">
-        <div className="mb-4 flex items-center justify-between">
+      <div className="rounded-lg border border-gold/30 bg-card/50 p-4 backdrop-blur-sm sm:p-6">
+        <div className="mb-4 flex items-center justify-between gap-3">
           <h3 className="font-serif text-lg text-gold">Accountability Balance</h3>
           <Trophy className="h-5 w-5 text-gold" />
         </div>
@@ -122,7 +122,7 @@ export function StatsDashboard() {
           </div>
 
           {/* Labels */}
-          <div className="flex justify-between text-sm">
+          <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold/20">
                 <User className="h-4 w-4 text-gold" />
@@ -135,7 +135,7 @@ export function StatsDashboard() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-end gap-2">
               <div>
                 <p className="text-right font-semibold text-crimson">{PARTNER_DETAILS.B.name}</p>
                 <p className="text-right text-xs text-muted-foreground">

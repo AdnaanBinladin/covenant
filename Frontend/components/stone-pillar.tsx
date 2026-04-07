@@ -30,14 +30,14 @@ export function StonePillar({ rules, onRuleClick }: StonePillarProps) {
         </div>
         
         {/* Pillar header */}
-        <div className="relative border-b border-gold/20 px-8 py-8 text-center">
-          <h2 className="carved-text font-serif text-2xl font-bold uppercase tracking-[0.4em] text-gold/90">
+        <div className="relative border-b border-gold/20 px-4 py-6 text-center sm:px-8 sm:py-8">
+          <h2 className="carved-text font-serif text-lg font-bold uppercase tracking-[0.22em] text-gold/90 sm:text-2xl sm:tracking-[0.4em]">
             The Sacred Laws
           </h2>
           <div className="mx-auto mt-3 flex items-center justify-center gap-2">
-            <div className="h-px w-16 bg-gold/30" />
+            <div className="h-px w-10 bg-gold/30 sm:w-16" />
             <div className="h-1.5 w-1.5 rotate-45 bg-gold/50" />
-            <div className="h-px w-16 bg-gold/30" />
+            <div className="h-px w-10 bg-gold/30 sm:w-16" />
           </div>
         </div>
 
@@ -64,12 +64,12 @@ export function StonePillar({ rules, onRuleClick }: StonePillarProps) {
                 />
                 
                 {/* Rule content */}
-                <div className="flex items-start gap-6 px-8 py-5">
+                <div className="flex items-start gap-3 px-4 py-4 sm:gap-6 sm:px-8 sm:py-5">
                   {/* Roman numeral - deeply carved */}
                   <div className="flex-shrink-0 pt-0.5">
                     <span 
                       className={cn(
-                        'carved-text font-serif text-4xl font-bold',
+                        'carved-text font-serif text-3xl font-bold sm:text-4xl',
                         isBroken ? 'text-crimson/60' : 'text-gold/70'
                       )}
                     >
@@ -81,19 +81,19 @@ export function StonePillar({ rules, onRuleClick }: StonePillarProps) {
                   <div className="flex-1 min-w-0">
                     <h3 
                       className={cn(
-                        'carved-text font-serif text-lg font-semibold uppercase tracking-wider',
+                        'carved-text font-serif text-base font-semibold uppercase tracking-wide sm:text-lg sm:tracking-wider',
                         isBroken ? 'text-crimson/80' : 'text-stone-900'
                       )}
                     >
                       {rule.title}
                     </h3>
-                    <p className="carved-text mt-2 text-sm leading-relaxed text-stone-600">
+                    <p className="carved-text mt-2 text-xs leading-relaxed text-stone-600 sm:text-sm">
                       {rule.description}
                     </p>
                     
                     {/* Consequence revealed on hover */}
-                    <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-20 group-hover:opacity-100">
-                      <p className="carved-text font-serif text-xs italic text-crimson-muted/80">
+                    <div className="mt-2 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-24 group-hover:opacity-100">
+                      <p className="carved-text font-serif text-[11px] italic text-crimson-muted/80 sm:text-xs">
                         Penalty: {'"'}{rule.consequence}{'"'}
                       </p>
                     </div>
@@ -126,11 +126,11 @@ export function StonePillar({ rules, onRuleClick }: StonePillarProps) {
 
         {/* Empty state */}
         {rules.length === 0 && (
-          <div className="px-8 py-20 text-center">
-            <p className="carved-text font-serif text-xl italic text-stone-500">
+          <div className="px-4 py-14 text-center sm:px-8 sm:py-20">
+            <p className="carved-text font-serif text-lg italic text-stone-500 sm:text-xl">
               No laws have been inscribed...
             </p>
-            <p className="carved-text mt-3 text-sm text-stone-400">
+            <p className="carved-text mt-3 text-xs text-stone-400 sm:text-sm">
               The stone awaits your first covenant
             </p>
           </div>

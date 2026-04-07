@@ -99,30 +99,30 @@ export default function Homepage() {
 
       <div className="relative z-10">
         <header className="border-b border-gold/20 bg-white/72 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:py-6">
             <div className="flex items-center gap-3">
-              <Heart className="h-8 w-8 text-gold" />
+              <Heart className="h-7 w-7 shrink-0 text-gold sm:h-8 sm:w-8" />
               <div>
-                <h1 className="font-serif text-3xl font-bold tracking-tight text-stone-950">
+                <h1 className="font-serif text-2xl font-bold tracking-tight text-stone-950 sm:text-3xl">
                   The Covenant
                 </h1>
-                <p className="text-sm text-stone-600">
+                <p className="text-xs text-stone-600 sm:text-sm">
                   Sacred promises between two hearts
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-start gap-3 sm:items-end">
-              <div className="flex items-center gap-2 rounded-full border border-gold/25 bg-white/85 px-3 py-1.5 text-xs text-stone-700 shadow-sm">
+            <div className="flex flex-col items-stretch gap-3 sm:items-end">
+              <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-gold/25 bg-white/85 px-3 py-2 text-xs text-stone-700 shadow-sm sm:rounded-full sm:py-1.5">
                 <ShieldCheck className="h-3.5 w-3.5 text-gold" />
                 <span>{user.name}</span>
                 <span className="text-stone-400">·</span>
-                <span>{user.email}</span>
+                <span className="break-all sm:break-normal">{user.email}</span>
               </div>
               <Button
                 onClick={handleLogout}
                 variant="ghost"
                 disabled={authLoading}
-                className="text-stone-600 hover:text-stone-950"
+                className="justify-start px-0 text-stone-600 hover:text-stone-950 sm:justify-end"
               >
                 <LogOut className="h-4 w-4" />
                 Logout
@@ -133,53 +133,53 @@ export default function Homepage() {
 
         <main className="mx-auto max-w-6xl px-4 py-8">
           <Tabs defaultValue="covenants" className="space-y-6">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <TabsList className="h-auto gap-1 border border-gold/20 bg-white/75 p-1 shadow-sm">
+            <div className="flex flex-col gap-4">
+              <TabsList className="grid h-auto w-full grid-cols-4 gap-1 border border-gold/20 bg-white/75 p-1 shadow-sm sm:inline-flex sm:w-auto">
                 <TabsTrigger
                   value="covenants"
-                  className="gap-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background"
+                  className="gap-1 px-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background sm:gap-2 sm:px-3"
                 >
                   <ScrollText className="h-4 w-4" />
-                  <span className="hidden sm:inline">Covenants</span>
+                  <span className="text-[11px] sm:text-sm">Covenants</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="stats"
-                  className="gap-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background"
+                  className="gap-1 px-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background sm:gap-2 sm:px-3"
                 >
                   <BarChart3 className="h-4 w-4" />
-                  <span className="hidden sm:inline">Stats</span>
+                  <span className="text-[11px] sm:text-sm">Stats</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="history"
-                  className="gap-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background"
+                  className="gap-1 px-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background sm:gap-2 sm:px-3"
                 >
                   <History className="h-4 w-4" />
-                  <span className="hidden sm:inline">History</span>
+                  <span className="text-[11px] sm:text-sm">History</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="requests"
-                  className="gap-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background"
+                  className="gap-1 px-2 text-stone-700 data-[state=active]:bg-gold data-[state=active]:text-background sm:gap-2 sm:px-3"
                 >
                   <Bell className="h-4 w-4" />
-                  <span className="hidden sm:inline">Requests</span>
+                  <span className="text-[11px] sm:text-sm">Requests</span>
                 </TabsTrigger>
               </TabsList>
 
-              <div className="flex gap-2">
+              <div className="grid grid-cols-2 gap-2 sm:flex sm:justify-end">
                 <Button
                   onClick={() => setViolationOpen(true)}
                   variant="outline"
-                  className="border-crimson/40 bg-white/75 text-crimson shadow-sm hover:bg-crimson/10 hover:text-crimson"
+                  className="h-11 border-crimson/40 bg-white/75 px-3 text-crimson shadow-sm hover:bg-crimson/10 hover:text-crimson"
                 >
-                  <AlertTriangle className="mr-2 h-4 w-4" />
-                  Report Violation
+                  <AlertTriangle className="h-4 w-4 sm:mr-2" />
+                  <span className="truncate text-xs sm:text-sm">Report Violation</span>
                 </Button>
                 <Button
                   onClick={() => setAddRuleOpen(true)}
-                  className="bg-gold text-background shadow-sm hover:bg-gold/90"
+                  className="h-11 bg-gold px-3 text-background shadow-sm hover:bg-gold/90"
                 >
-                  <Plus className="mr-2 h-4 w-4" />
-                  Add Covenant
+                  <Plus className="h-4 w-4 sm:mr-2" />
+                  <span className="truncate text-xs sm:text-sm">Add Covenant</span>
                 </Button>
               </div>
             </div>
